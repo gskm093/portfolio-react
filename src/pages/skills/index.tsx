@@ -1,10 +1,5 @@
 import * as React from 'react';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Fade from '@mui/material/Fade';
 import { Avatar, Box } from '@mui/material';
 import proPic from '../../assets/images/myimage.png';
 import react from '../../assets/icons/react.png';
@@ -23,7 +18,6 @@ import SkillsAccordion from '../../components/SkillsAccordion';
 import Footer from '../../components/Footer';
 
 export default function Skills() {
-	const [expanded, setExpanded] = React.useState(false);
 	const skills = [
 		{
 			imageUrl: javascript,
@@ -98,10 +92,6 @@ export default function Skills() {
 		},
 	];
 
-	const handleExpansion = () => {
-		setExpanded((prevExpanded) => !prevExpanded);
-	};
-
 	return (
 		<>
 			<Box sx={{ px: 15, pt: 10, display: 'flex' }}>
@@ -115,10 +105,10 @@ export default function Skills() {
 					}}
 				>
 					{/* Scrolling Skills */}
-					<Typography variant='h4' sx={{ fontWeight: 700 }}>
+					<Typography variant='h2' sx={{ fontWeight: 700 }}>
 						Professional Skill Set
 					</Typography>
-					<Typography variant='subtitle1'>
+					<Typography variant='subtitle1' sx={{ mt: 2 }}>
 						&nbsp;&nbsp;&nbsp;&nbsp;I am a skilled MERN Stack Developer with a
 						focus on building efficient, interactive, and scalable web
 						applications. My expertise in JavaScript, React, and Next.js enables

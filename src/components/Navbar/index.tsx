@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import { Avatar, Button, List, ListItem, Typography } from '@mui/material';
 import myImage from '../../assets/images/myimage.png';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function Navbar() {
 	const buttons = [
@@ -11,10 +11,32 @@ export default function Navbar() {
 		{ name: 'Portfolio', path: '/projects' },
 		{ name: 'Testimonial', path: '/testimonials' },
 	];
+	const location = useLocation();
+	let pathName = location.pathname;
+	pathName = pathName ? pathName : '/';
+	console.log('pathName', pathName);
+	const activeIndex = buttons.findIndex((button) => button.path === pathName);
 	const [selectedIndex, setSelectedIndex] = useState(0);
 	const handleClick = (index: number) => {
 		setSelectedIndex(index);
 	};
+	useEffect(() => {
+		let pathName = location.pathname;
+		pathName = pathName ? pathName : '/';
+		console.log('pathName', pathName);
+		const activeIndex = buttons.findIndex((button) => button.path === pathName);
+		setSelectedIndex(activeIndex);
+	}, []);
+
+	const handleDownload = () => {
+		const link = document.createElement('a');
+		link.href = '/assets/RKS.pdf'; // Adjust the path according to your file location
+		link.download = 'resume.pdf'; // Name of the file that will be downloaded
+		document.body.appendChild(link);
+		link.click();
+		document.body.removeChild(link);
+	};
+
 	return (
 		<Box
 			sx={{
@@ -51,7 +73,8 @@ export default function Navbar() {
 					{buttons.map((each, index) => (
 						<ListItem key={each.name}>
 							<Button
-								variant={index === selectedIndex ? 'contained' : 'text'}
+								// variant={index === selectedIndex ? 'contained' : 'text'}
+								variant={pathName ? 'contained' : 'text'}
 								onClick={() => handleClick(index)}
 								sx={{
 									color: index === selectedIndex ? 'white' : '#0DB75F',
@@ -90,6 +113,7 @@ export default function Navbar() {
 						p: 3,
 						textTransform: 'none',
 					}}
+					onClick={handleDownload}
 				>
 					<Typography variant='body1'>Download CV</Typography>
 				</Button>

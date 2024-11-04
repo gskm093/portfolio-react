@@ -69,12 +69,18 @@ export default function Heading() {
 				</Box>
 			</Box>
 			<Box
-				sx={{ display: 'flex', justifyContent: 'center', width: '50%', pt: 5 }}
+				sx={{
+					display: 'flex',
+					justifyContent: 'center',
+					width: '50%',
+					pt: 5,
+					position: 'relative',
+				}}
 			>
 				<Box
 					height={'400px'}
 					width={'450px'}
-					sx={{ backgroundColor: '#0DB75F' }}
+					sx={{ backgroundColor: '#0DB75F', bottom: 0 }}
 				></Box>
 				<Box
 					sx={{
@@ -84,11 +90,11 @@ export default function Heading() {
 						borderRadius: '10px',
 						backgroundColor: 'transparent', // Transparent background
 						position: 'absolute',
-						top: 280,
-						right: 290,
+						top: 70,
+						right: 220,
 					}}
 				></Box>
-				<Box sx={{ position: 'absolute', top: 122 }}>
+				<Box sx={{ position: 'absolute', top: -80 }}>
 					<img src={proPic} alt='profile' height={'500px'} />
 				</Box>
 				<Box
@@ -112,21 +118,21 @@ export default function Heading() {
 
 					<IconButton
 						sx={{ color: '#0DB75F' }}
-						href='https://facebook.com'
+						href='https://www.facebook.com/msuryak093/'
 						target='_blank'
 					>
 						<Facebook />
 					</IconButton>
 					<IconButton
 						sx={{ color: '#0DB75F' }}
-						href='https://instagram.com'
+						href='https://www.instagram.com/surrya_._/'
 						target='_blank'
 					>
 						<Instagram />
 					</IconButton>
 					<IconButton
 						sx={{ color: '#0DB75F' }}
-						href='https://linkedin.com'
+						href='https://www.linkedin.com/in/suryakant-malla-b9b70b1a2/'
 						target='_blank'
 					>
 						<LinkedIn />

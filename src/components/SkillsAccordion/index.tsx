@@ -4,10 +4,6 @@ import {
 	Avatar,
 	Box,
 	Button,
-	Dialog,
-	DialogActions,
-	DialogContent,
-	DialogTitle,
 	Stack,
 	Typography,
 } from '@mui/material';
@@ -31,6 +27,7 @@ import Fade from '@mui/material/Fade';
 import { Gauge } from '@mui/x-charts/Gauge';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import MyDialog from '../Dialog';
 export default function SkillsAccordion() {
 	const skills = [
 		{
@@ -304,17 +301,7 @@ export default function SkillsAccordion() {
 					</Button>
 				</Box>
 			</Box>
-			<Dialog open={open} onClose={handleClickOpen}>
-				<DialogTitle>Popup Title</DialogTitle>
-				<DialogContent>
-					<Typography>This is the popup content.</Typography>
-				</DialogContent>
-				<DialogActions>
-					<Button onClick={handleClickOpen} color='primary'>
-						Close
-					</Button>
-				</DialogActions>
-			</Dialog>
+			<MyDialog state={open} handleClickOpen={handleClickOpen} />
 		</>
 	);
 }
